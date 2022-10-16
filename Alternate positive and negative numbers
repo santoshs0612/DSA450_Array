@@ -38,6 +38,77 @@ elements.The output is 5,-5,2,-2,4,-8,7,1,8,0.
 
 
 
+class Solution{
+public:
+    void rotate(int arr[],int start,int end)
+    {
+        int temp =arr[end];
+        
+        for(int i= end-1;i>=start;i--)
+        {
+            arr[i+1]=arr[i];
+        }
+        arr[start]= temp;
+        
+    }
+	void rearrange(int arr[], int n) {
+	    // code here
+	    
+	    
+	    int i=0,j=0,k=0;
+	    
+	    while(k<n && j<n && i<n)
+	    {
+	        
+	        
+	        // finding out positive number 
+	        
+	        if(k%2==0)
+	        {
+	            if(arr[k]<0)
+	            {
+	                // findout first first positive number 
+	                i=k;
+	                j=k;
+	                
+	                while(i<n  && arr[i]<0)
+	                {
+	                    i++;
+	                }
+	                if(i>=n)
+	                {
+	                    break;
+	                }
+	                rotate(arr,j,i);
+	            }
+	            
+	           }
+	            else 
+	            {
+	                if(arr[k]>=0)
+	                {
+	                    i=k;
+	                    j=k;
+	                    while(j<n && arr[j]>=0)
+	                    {
+	                        j++;
+	                    }
+	                    if(j>=n)
+	                    {
+	                        break;
+	                    }
+	                    rotate(arr,i,j);
+	                }
+	           
+	        }
+	        k++;
+	    }
+	    
+	    
+	}
+};
+
+
 //User function template for C++
 class Solution{
 public:
